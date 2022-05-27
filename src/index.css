@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'GraphikTT', Arial, sans-serif;
+}
+
+d-f {
+  display: flex;
+}
+fxw-w {
+  flex-wrap: wrap;
+}
+
+section {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+section > h3 {
+  text-align: center;
+}
+
+@media (min-width: 1200px) {
+  section {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 992px) {
+  section {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 768px) {
+  section {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 576px) {
+  section {
+    max-width: 540px;
+  }
+}
