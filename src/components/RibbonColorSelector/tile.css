@@ -1,0 +1,16 @@
+.tile {
+  position: relative;
+  border: 1px solid;
+}
+.tile::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.tile .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
