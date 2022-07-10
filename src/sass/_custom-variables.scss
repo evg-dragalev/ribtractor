@@ -1,0 +1,19 @@
+// Override default bootstrap breakpoints
+// https://getbootstrap.com/docs/5.2/layout/breakpoints/
+$grid-breakpoints: (
+  xs: 0,
+  sm: 375px,
+  md: 576px,
+  lg: 768px,
+  xl: 992px,
+  xxl: 1200px,
+);
+
+//Override max width as well to match with new breakpoints
+$container-max-widths: (
+  sm: 539px,
+  md: 540px,
+  lg: 720px,
+  xl: 960px,
+  xxl: 1140px,
+);

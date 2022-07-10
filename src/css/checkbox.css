@@ -13,18 +13,33 @@
   box-sizing: border-box;
   content: '';
   position: absolute;
-  top: 3px;
+  top: 6px;
   left: 0;
   width: var(--cbx-width);
   height: var(--cbx-width);
   border: 2px solid #262626;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .cbx input:checked:before {
   border-color: #339d50;
-  border-left: none;
+  border-right: none;
   border-top: none;
-  width: calc(var(--cbx-width) / 2);
-  transform: rotate(45deg) translate(1px, -3px);
+  height: calc(var(--cbx-width) / 2);
+  transform: rotate(-45deg) translate(-1px, 1px);
+}
+
+.cbx--onborder {
+  position: absolute;
+  top: -13px;
+  background-color: #fff;
+}
+.cbx--onborder > label > span {
+  padding-left: 3px;
+}
+.cbx--onborder {
+  padding: 0 5px;
+}
+.cbx--onborder input:before {
+  left: 5px;
 }

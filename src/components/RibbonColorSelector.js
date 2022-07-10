@@ -1,8 +1,7 @@
-import '../../index.css';
-import './checkbox.css';
-import './tile.css';
+import './../css/checkbox.css';
+import './../css/tile.css';
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
 const options = [
   {
@@ -55,36 +54,53 @@ const options = [
   },
 ];
 
-function RibbonColorSelector() {
+function RibbonColorSelector({ ribbonColor, setRibbonColor }) {
+  useEffect(() => {
+    console.log('ribbon color', ribbonColor);
+  }, [ribbonColor]);
   return (
-    <fieldSet className='row g-0' style={{ position: 'relative' }}>
+    <fieldset className='row g-0'>
       <legend>
         <h3>Выберите цвет ленты</h3>
       </legend>
       {options.map((item, index) => {
-        return <Option key={index} {...item} />;
+        return (
+          <Option
+            key={index}
+            {...item}
+            inputId={index}
+            isSelected={ribbonColor === item.label}
+            setSelected={setRibbonColor}
+          />
+        );
       })}
-    </fieldSet>
+    </fieldset>
   );
 }
 
-function Option({ label, img, key }) {
+function Option({ label, img, inputId, isSelected, setSelected }) {
   return (
-    <div className='tile col-6 col-sm-4 col-md-3 '>
-      <div className='content px-3' style={{ border: 'solid 1px black' }}>
-        <div>
+    <div className='col-12 col-sm-6 col-md-4 col-lg-3'>
+      <div
+        className={`tile tile--square border border-2 m-2 ${
+          isSelected ? 'border-success' : 'border-dark'
+        }`}
+      >
+        <div className='content p-3'>
           <img src={img} alt={`Цвет ленты: ${label}`} />
-        </div>
-        <div className='cbx'>
-          <label>
-            <input
-              type='radio'
-              name='ribbonColor'
-              id={`ribbonColor${key}`}
-              value={label}
-            />
-            {label}
-          </label>
+
+          <div className='cbx cbx--onborder'>
+            <label>
+              <input
+                type='radio'
+                name='ribbonColor'
+                id={`ribbonColor${inputId}`}
+                value={label}
+                onChange={(e) => setSelected(label)}
+              />
+              <span>{label}</span>
+            </label>
+          </div>
         </div>
       </div>
     </div>
