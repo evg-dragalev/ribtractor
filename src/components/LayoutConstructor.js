@@ -67,14 +67,19 @@ function LayoutConstructor({ markupData, setMarkupData }) {
         <fieldset className='row g-3'>
           <legend>Настройте ваш макет</legend>
           <div className='col-12'>
+            {/* markup constructor */}
             <div className='row mb-3'>
-              <div className='col-12' style={{ overflowX: 'scroll' }}>
+              <div className='col-12'>
                 <div className='constructor'>
-                  <div className='row'>
-                    <div className='col-2'>
-                      <img src={printSymbol} alt='Print symbol' />
+                  <div className='row constructor-content'>
+                    <div className='col-2 p-3'>
+                      <img
+                        src={printSymbol}
+                        alt='Print symbol'
+                        className='d-block'
+                      />
                     </div>
-                    <div className='col-10'>
+                    <div className='col-10 ps-0'>
                       <div
                         className='constructor-signature'
                         style={{ fontFamily: markupData.fontFamily }}
@@ -94,7 +99,7 @@ function LayoutConstructor({ markupData, setMarkupData }) {
                 </div>
               </div>
             </div>
-
+            {/* text for constructor */}
             <div className='row mb-3'>
               <div className='col-12 col-md-6'>
                 <label>Название учр. образования:</label>
@@ -116,7 +121,7 @@ function LayoutConstructor({ markupData, setMarkupData }) {
                 />
               </div>
             </div>
-
+            {/* font selector */}
             <div className='row mb-3 g-2'>
               {fonts.map(({ name, id }) => {
                 return (

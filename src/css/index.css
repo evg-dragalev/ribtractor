@@ -30,8 +30,14 @@ img {
 }
 
 .constructor {
+  padding: 40px;
+  overflow-x: auto;
+}
+
+.constructor-content {
   width: 861px;
   border: 1px solid black;
+  margin: 0 auto;
   font-size: 90px;
 }
 .constructor-signature {

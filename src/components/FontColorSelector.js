@@ -69,7 +69,7 @@ function Option({ label, img, inputId, isSelected, setSelected }) {
           isSelected ? 'border-success' : 'border-dark'
         }`}
       >
-        <div className='row'>
+        <div className='d-flex'>
           <div className='col-6 p-3'>
             <div className='cbx'>
               <label>
