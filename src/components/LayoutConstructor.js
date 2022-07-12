@@ -1,26 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import printSymbol from './../assets/symbol_02.png';
-import fontManuscript from './../assets/fonts/Manuscript.ttf';
-import fontVivaldiD from './../assets/fonts/VivaldiD CL.ttf';
 
-const fonts = [
-  {
-    id: 1,
-    name: 'Manuscript',
-    src: fontManuscript,
-  },
-  {
-    id: 2,
-    name: 'VivaldiD CL',
-    src: fontVivaldiD,
-  },
-];
+function extractFonts(componentConfig) {
+  return componentConfig.fields.facetValuesList.map((item) => ({
+    id: item.sys.id,
+    name: item.fields.file.fields.file.fileName.replace('.ttf', ''),
+    url: `https:${item.fields.file.fields.file.url}`,
+  }));
+}
 
 async function loadFontsIntoDom(fonts) {
   const loadPromises = [];
   const fontsSet = document.fonts;
-  for (const { name, src } of fonts) {
-    const face = new FontFace(name, `url(${src.replace(' ', '\\ ')})`);
+  for (const { name, url } of fonts) {
+    const face = new FontFace(name, `url(${url})`);
     loadPromises.push(face.load().then((f) => fontsSet.add(f)));
   }
 
@@ -32,8 +25,10 @@ async function loadFontsIntoDom(fonts) {
  * @param { fontFamily, icon, schoolText } markupData
  * @returns
  */
-function LayoutConstructor({ markupData, setMarkupData }) {
+function LayoutConstructor({ componentConfig, markupData, setMarkupData }) {
   const [hasFontsLoaded, setHasFontsLoaded] = useState(false);
+
+  const fonts = extractFonts(componentConfig);
 
   const handleFontSelection = (value) =>
     setMarkupData(Object.assign({}, markupData, { fontFamily: value }));
@@ -56,16 +51,12 @@ function LayoutConstructor({ markupData, setMarkupData }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    console.log(markupData);
-  }, [markupData]);
-
   return (
     <>
       {!hasFontsLoaded && <div className='row'>Loading fonts...</div>}
       {hasFontsLoaded && (
         <fieldset className='row g-3'>
-          <legend>Настройте ваш макет</legend>
+          <legend>{componentConfig.fields.callToActionText}</legend>
           <div className='col-12'>
             {/* markup constructor */}
             <div className='row mb-3'>
