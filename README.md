@@ -6,6 +6,13 @@ This is Ribbon Constructor App that allows you to create ribbon from available t
 
 Template data will be pulled from Contentful CMS, so that main configuration can be done without changing the codebase
 
+Run `npx json-server --watch data/db.json --port 8000` before `npm run start` in separate terminal window, to be able to fetch saved markups
+
+### Left to do
+
+- Create button to save markup from constructor page
+- Implement removal of markups
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
