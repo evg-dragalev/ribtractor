@@ -1,7 +1,7 @@
 import './../css/checkbox.css';
 import './../css/tile.css';
 
-import ribbonColor from './../assets/fontColor_DSC08355.jpg';
+import fontColor from './../assets/fontColor_DSC08355.jpg';
 
 import React from 'react';
 
@@ -38,11 +38,11 @@ const options = [
   },
 ];
 
-// options.forEach((i) => (i.img = ribbonColor));
+// options.forEach((i) => (i.img = fontColor));
 
-function FontColorSelector(fontColor, setFontColor) {
+function FontColorSelector({ fontColor, setFontColor }) {
   return (
-    <fieldset className='row g-0'>
+    <fieldset className='row g-2'>
       <legend>
         <h3>Выберите цвет нанесения</h3>
       </legend>
@@ -63,9 +63,9 @@ function FontColorSelector(fontColor, setFontColor) {
 
 function Option({ label, img, inputId, isSelected, setSelected }) {
   return (
-    <div className='tile col-12'>
+    <div className='col-12'>
       <div
-        className={`border border-2 m-2 ${
+        className={`tile border border-2 ${
           isSelected ? 'border-success' : 'border-dark'
         }`}
       >
@@ -75,8 +75,8 @@ function Option({ label, img, inputId, isSelected, setSelected }) {
               <label>
                 <input
                   type='radio'
-                  name='ribbonColor'
-                  id={`ribbonColor${inputId}`}
+                  name='fontColor'
+                  id={`fontColor-${inputId}`}
                   value={label}
                   onChange={(e) => setSelected(label)}
                 />
@@ -85,7 +85,7 @@ function Option({ label, img, inputId, isSelected, setSelected }) {
             </div>
           </div>
           <div className='col-6'>
-            <div className='parallax img-wrapper--cut-height img-wrapper--fade-from-left'>
+            <div className='img-wrapper--cut-height img-wrapper--fade-from-left'>
               <img src={img} alt={`Нанесение: ${label}`} />
             </div>
           </div>

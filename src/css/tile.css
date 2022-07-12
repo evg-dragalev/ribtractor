@@ -7,7 +7,7 @@
   display: block;
   padding-top: 100%;
 }
-.tile--square .content {
+.tile--square .tile-content {
   position: absolute;
   top: 0;
   left: 0;

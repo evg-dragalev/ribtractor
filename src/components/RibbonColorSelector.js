@@ -2,6 +2,7 @@ import './../css/checkbox.css';
 import './../css/tile.css';
 
 import React, { useEffect } from 'react';
+import ribbonColor from './../assets/ribbonColor_s1a17.png';
 
 const options = [
   {
@@ -54,12 +55,14 @@ const options = [
   },
 ];
 
+// options.forEach((i) => (i.img = ribbonColor));
+
 function RibbonColorSelector({ ribbonColor, setRibbonColor }) {
   useEffect(() => {
     console.log('ribbon color', ribbonColor);
   }, [ribbonColor]);
   return (
-    <fieldset className='row g-0'>
+    <fieldset className='row g-3'>
       <legend>
         <h3>Выберите цвет ленты</h3>
       </legend>
@@ -82,11 +85,11 @@ function Option({ label, img, inputId, isSelected, setSelected }) {
   return (
     <div className='col-12 col-sm-6 col-md-4 col-lg-3'>
       <div
-        className={`tile tile--square border border-2 m-2 ${
+        className={`tile tile--square border border-2 ${
           isSelected ? 'border-success' : 'border-dark'
         }`}
       >
-        <div className='content p-3'>
+        <div className='tile-content p-3'>
           <img src={img} alt={`Цвет ленты: ${label}`} />
 
           <div className='cbx cbx--onborder'>

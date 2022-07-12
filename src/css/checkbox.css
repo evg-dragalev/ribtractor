@@ -13,7 +13,7 @@
   box-sizing: border-box;
   content: '';
   position: absolute;
-  top: 6px;
+  top: calc(50% - var(--cbx-width) / 2);
   left: 0;
   width: var(--cbx-width);
   height: var(--cbx-width);
