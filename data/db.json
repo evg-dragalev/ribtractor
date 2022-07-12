@@ -1,0 +1,18 @@
+{
+  "markups": [
+    {
+      "id": 1,
+      "schoolName": "Школа №1",
+      "fontColor": "onZyA2ygnNGlJprj6EgfE",
+      "fontFamily": "2iix1yTvaBadOvm5XCVDVv",
+      "ribbonColor": "5a4BofVyKEVtme2pRBL31Y"
+    },
+    {
+      "id": 2,
+      "schoolName": "Школа №2",
+      "fontColor": "4tGTvkXhXFyGinoYRLrZVS",
+      "fontFamily": "4gtlKJ2bS05dli0rI1UNx4",
+      "ribbonColor": "5xfP6eS2uQZt9BCCRihMu6"
+    }
+  ]
+}

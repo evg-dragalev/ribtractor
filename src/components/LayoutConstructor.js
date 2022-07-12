@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import printSymbol from './../assets/symbol_02.png';
+import MarkupPreview from './MarkupPreview';
 
 function extractFonts(componentConfig) {
   return componentConfig.fields.facetValuesList.map((item) => ({
@@ -61,33 +61,10 @@ function LayoutConstructor({ componentConfig, markupData, setMarkupData }) {
             {/* markup constructor */}
             <div className='row mb-3'>
               <div className='col-12'>
-                <div className='constructor'>
-                  <div className='row constructor-content'>
-                    <div className='col-2 p-3'>
-                      <img
-                        src={printSymbol}
-                        alt='Print symbol'
-                        className='d-block'
-                      />
-                    </div>
-                    <div className='col-10 ps-0'>
-                      <div
-                        className='constructor-signature'
-                        style={{ fontFamily: markupData.fontFamily }}
-                      >
-                        <div className='constructor-legend-top'>
-                          Иванов Иван
-                        </div>
-                        <div className='constructor-main-text'>
-                          Выпускник 2022
-                        </div>
-                        <div className='constructor-legend-bottom'>
-                          {markupData.schoolText}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <MarkupPreview
+                  fontFamily={markupData.fontFamily}
+                  schoolText={markupData.schoolText}
+                />
               </div>
             </div>
             {/* text for constructor */}

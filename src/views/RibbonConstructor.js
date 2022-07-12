@@ -3,7 +3,7 @@ import RibbonColorSelector from '../components/RibbonColorSelector';
 import FontColorSelector from '../components/FontColorSelector';
 import LayoutConstructor from '../components/LayoutConstructor';
 
-import useContentfulEntry from '../customHooks/useContentfulEntry';
+import useContentfulConfig from '../customHooks/useContentfulConfig';
 
 function RibbonConstructor() {
   const [ribbonColor, setRibbonColor] = useState(null);
@@ -12,11 +12,11 @@ function RibbonConstructor() {
 
   const {
     entry: config,
-    isLoaded,
+    isLoading,
     isError,
-  } = useContentfulEntry('constructorComponent');
+  } = useContentfulConfig('constructorComponent');
 
-  if (!isLoaded)
+  if (isLoading)
     return (
       <div>
         <h1>Loading...</h1>

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import contentfulClient from './../contentfulClient';
+import contentfulClient from '../contentfulClient';
 
-function useContentfulEntry(type) {
+function useContentfulConfig(type) {
   const [entry, setEntry] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
@@ -20,11 +20,12 @@ function useContentfulEntry(type) {
         console.log(err);
       })
       .finally(() => {
-        setIsLoaded(true);
+        setIsLoading(false);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { entry, isError, isLoaded };
+  return { entry, isError, isLoading };
 }
 
-export default useContentfulEntry;
+export default useContentfulConfig;
