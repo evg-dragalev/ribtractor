@@ -42,7 +42,7 @@ const options = [
 
 function FontColorSelector({ fontColor, setFontColor }) {
   return (
-    <fieldset className='row g-2'>
+    <fieldset className='row g-3'>
       <legend>
         <h3>Выберите цвет нанесения</h3>
       </legend>

@@ -11,20 +11,20 @@ function RibbonConstructor() {
   return (
     <>
       {/* select ribbon color component */}
-      <div className='container'>
+      <div className='container my-4'>
         <RibbonColorSelector
           ribbonColor={ribbonColor}
           setRibbonColor={setRibbonColor}
         />
       </div>
       {/* select font color component */}
-      <div className='container'>
+      <div className='container my-4'>
         <FontColorSelector
           ribbonColor={fontColor}
           setFontColor={setFontColor}
         />
       </div>
-      <div className='container'>
+      <div className='container my-4'>
         <LayoutConstructor
           markupData={markupData}
           setMarkupData={setMarkupData}
