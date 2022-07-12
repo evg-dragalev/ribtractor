@@ -6,7 +6,7 @@ import LayoutConstructor from '../components/LayoutConstructor';
 function RibbonConstructor() {
   const [ribbonColor, setRibbonColor] = useState(null);
   const [fontColor, setFontColor] = useState(null);
-  const [markupData, setMarkupData] = useState({});
+  const [markupData, setMarkupData] = useState(null);
 
   return (
     <>

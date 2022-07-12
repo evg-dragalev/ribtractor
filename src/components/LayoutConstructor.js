@@ -38,10 +38,18 @@ function LayoutConstructor({ markupData, setMarkupData }) {
   const handleFontSelection = (value) =>
     setMarkupData(Object.assign({}, markupData, { fontFamily: value }));
 
+  const handleSchoolTextUpdate = (value) => {
+    setMarkupData(Object.assign({}, markupData, { schoolText: value }));
+  };
+
   useEffect(() => {
     loadFontsIntoDom(fonts)
       .then(() => {
-        if (!markupData.fontFamily) handleFontSelection(fonts[0].name);
+        if (!markupData)
+          setMarkupData({
+            fontFamily: fonts[0].name,
+            schoolText: 'Средняя Школа №1, г. Минска',
+          });
       })
       .then(() => setHasFontsLoaded(true))
       .catch((err) => console.log(err));
@@ -78,7 +86,7 @@ function LayoutConstructor({ markupData, setMarkupData }) {
                           Выпускник 2022
                         </div>
                         <div className='constructor-legend-bottom'>
-                          Школа №1
+                          {markupData.schoolText}
                         </div>
                       </div>
                     </div>
@@ -94,7 +102,8 @@ function LayoutConstructor({ markupData, setMarkupData }) {
                   className='form-control'
                   maxLength={35}
                   type='text'
-                  value='Средняя Школа №1, г. Минска'
+                  value={markupData.schoolText}
+                  onChange={(e) => handleSchoolTextUpdate(e.target.value)}
                 />
               </div>
               <div className='col-12 col-md-6'>
