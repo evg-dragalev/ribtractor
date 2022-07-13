@@ -12,6 +12,9 @@ Run `npx json-server --watch data/db.json --port 8000` before `npm run start` in
 
 - Create button to save markup from constructor page
 - Implement removal of markups
+- Implement image selection for markup
+- Implement lists of names for markup
+- Add calcuation of cost for selected options
 
 ## Getting Started with Create React App
 
